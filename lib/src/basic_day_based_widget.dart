@@ -133,7 +133,7 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
         // Checks do we need to merge decoration and textStyle with [EventDecoration].
         // Merge only in cases if [dayType] is DayType.notSelected.
         // If day is current day it is also gets event decoration instead of decoration for current date.
-        if (dayType == DayType.notSelected && eventDecorationBuilder != null) {
+        if (eventDecorationBuilder != null) {
           EventDecoration eDecoration = eventDecorationBuilder(dayToBuild);
           decoration = eDecoration?.boxDecoration ?? decoration;
           itemStyle = eDecoration?.textStyle ?? itemStyle;
