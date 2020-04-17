@@ -75,7 +75,7 @@ class _DayBasedChangablePickerState<T> extends State<DayBasedChangablePicker<T>>
   TextDirection textDirection;
 
   DateTime _todayDate;
-  DateTime _currentDisplayedMonthDate;
+  DateTime currentDisplayedMonthDate;
   DateTime _previousMonthDate;
   DateTime _nextMonthDate;
 
@@ -86,11 +86,11 @@ class _DayBasedChangablePickerState<T> extends State<DayBasedChangablePicker<T>>
   PageController _dayPickerController;
 
   /// True if the first permitted month is displayed.
-  bool get _isDisplayingFirstMonth => !_currentDisplayedMonthDate
+  bool get _isDisplayingFirstMonth => !currentDisplayedMonthDate
       .isAfter(DateTime(widget.firstDate.year, widget.firstDate.month));
 
   /// True if the last permitted month is displayed.
-  bool get _isDisplayingLastMonth => !_currentDisplayedMonthDate
+  bool get _isDisplayingLastMonth => !currentDisplayedMonthDate
       .isBefore(DateTime(widget.lastDate.year, widget.lastDate.month));
 
   @override
@@ -152,7 +152,7 @@ class _DayBasedChangablePickerState<T> extends State<DayBasedChangablePicker<T>>
                 onPreviousMonthTapped: _handlePreviousMonth,
                 onNextMonthTapped: _handleNextMonth,
                 title: Text(
-                  localizations.formatMonthYear(_currentDisplayedMonthDate),
+                  localizations.formatMonthYear(currentDisplayedMonthDate),
                   key: widget.datePickerKeys?.selectedPeriodKeys,
                   style: _resultStyles.displayedPeriodTitle,
                 ),
@@ -244,7 +244,7 @@ class _DayBasedChangablePickerState<T> extends State<DayBasedChangablePicker<T>>
     setState(() {
       _previousMonthDate =
           DatePickerUtils.addMonthsToMonthDate(widget.firstDate, monthPage - 1);
-      _currentDisplayedMonthDate =
+      currentDisplayedMonthDate =
           DatePickerUtils.addMonthsToMonthDate(widget.firstDate, monthPage);
       _nextMonthDate = DatePickerUtils.addMonthsToMonthDate(widget.firstDate, monthPage + 1);
     });
