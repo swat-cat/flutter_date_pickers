@@ -29,6 +29,7 @@ class RangePicker extends StatelessWidget {
       @required this.onChanged,
       @required this.firstDate,
       @required this.lastDate,
+      @required this.onMonthChanged,
       this.datePickerLayoutSettings = const DatePickerLayoutSettings(),
       this.datePickerStyles = const DatePickerRangeStyles(),
       this.datePickerKeys,
@@ -50,6 +51,8 @@ class RangePicker extends StatelessWidget {
 
   /// Called when the user picks a week.
   final ValueChanged<DatePeriod> onChanged;
+
+  final ValueChanged<DateTime> onMonthChanged;
 
   /// Called when the error was thrown after user selection.
   /// (e.g. when user selected a range with one or more days what can't be selected)
@@ -95,6 +98,7 @@ class RangePicker extends StatelessWidget {
       firstDate: firstDate,
       lastDate: lastDate,
       onChanged: onChanged,
+      onMonthChanged: onMonthChanged,
       onSelectionError: onSelectionError,
       datePickerLayoutSettings: datePickerLayoutSettings,
       datePickerStyles: datePickerStyles,

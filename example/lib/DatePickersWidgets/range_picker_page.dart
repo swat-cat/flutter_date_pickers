@@ -69,6 +69,9 @@ class _RangePickerPageState extends State<RangePickerPage> {
       children: <Widget>[
         Expanded(
           child: RangePicker(
+            onMonthChanged: (date){
+              print(date);
+            },
             selectedPeriod: _selectedPeriod,
             onChanged: _onSelectedDateChanged,
             firstDate: _firstDate,
